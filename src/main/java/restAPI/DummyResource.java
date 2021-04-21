@@ -69,7 +69,7 @@ public class DummyResource {
       catch(Exception e){
                   throw new WebApplicationException("Internal Server Problem. We are sorry for the inconvenience",501);
     }finally{
-              facade.createPerson(p);
+              facade.createPerson(p.getName());
         }
     }
 

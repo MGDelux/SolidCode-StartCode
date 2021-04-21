@@ -30,11 +30,13 @@ public class testFacade {
         }
         return instance;
     }
-        public DummyEntity createPerson(DummyEntity name){
+        public DummyEntity createPerson(String name){
         EntityManager em = emf.createEntityManager();
+         DummyEntity df1 = new DummyEntity(name);
+
         try{
             em.getTransaction().begin();
-            em.persist(name);
+            em.persist(df1);
             em.getTransaction().commit(); 
         }finally {
             em.close();
