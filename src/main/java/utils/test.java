@@ -15,7 +15,7 @@ import javax.persistence.EntityManagerFactory;
 public class test {
            public static void main(String[] args) {
          EntityManagerFactory emf = EntityManagerCreator.CreateEntityManagerTest();
-         testFacade f = testFacade.getMovieFacade(emf);
+         testFacade f = testFacade.getDummyFacade(emf);
     }
 
 }

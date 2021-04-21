@@ -69,7 +69,7 @@ public class EntityManagerCreator {
        try {
          emf =  Persistence.createEntityManagerFactory(puName, null);
        } catch (javax.persistence.PersistenceException e){
-           System.out.println("EntityManagerCreator E R R O R:");
+           System.out.println("!!! > EntityManagerCreator E R R O R:");
            System.out.println(e.toString());
            throw e;
        }
