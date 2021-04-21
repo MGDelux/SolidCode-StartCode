@@ -57,11 +57,11 @@ public class EntityManagerCreator {
         }
      
        String puName = isTest || System.getProperty("IS_INTEGRATION_TEST_WITH_DB") != null ? "puTest" : "pu"; //Only legal names
-             System.out.println( "#> Persistance.xml , = "+puName+"<                  #");
+             System.out.println( "#> Persistance.xml , = "+puName+" <                 #");
        if (puName.equals("puTest")) {
-            System.out.println("#>>Using the TEST DB...                             #");
+            System.out.println("#>> Using the TEST DB...                             #");
         } else {
-            System.out.println("#>>Using the DEV PU DB                              #");
+            System.out.println("#>> Using the DEV PU DB                              #");
         }
                System.out.println("#####################################################");
 
