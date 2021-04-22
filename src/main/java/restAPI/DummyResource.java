@@ -87,6 +87,7 @@ public class DummyResource {
         public String fetch() throws IOException{
             Gson gson = new Gson();
 //todo use multithreading 
+       List<CombinedDTO> list = new ArrayList<>();
         String chuck = HTTPFetch.fetchData("https://api.chucknorris.io/jokes/random");
         String joke = HTTPFetch.fetchData("https://icanhazdadjoke.com/");
         String SWShip = HTTPFetch.fetchData("https://swapi.dev/api/starships/12/");
@@ -99,8 +100,8 @@ public class DummyResource {
         JokeDTO jokedto = gson.fromJson(joke, JokeDTO.class);
        CombinedDTO cw = new CombinedDTO(dto,jokedto,ship,cat);
             System.out.println(cw);
-
-        return gson.toJson(cw);
+         list.add(cw);
+        return gson.toJson(list);
         }
 
     
