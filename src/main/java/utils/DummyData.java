@@ -13,7 +13,7 @@ import javax.persistence.EntityManagerFactory;
  *
  * @author mathi
  */
-public class FirstStart {
+public class DummyData {
             private static final EntityManagerFactory EMF = EntityManagerCreator.CreateEntityManagerTest();
 
     public static void main(String[] args) {

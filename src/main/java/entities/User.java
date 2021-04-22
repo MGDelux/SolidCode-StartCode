@@ -17,7 +17,7 @@ import org.mindrot.jbcrypt.BCrypt;
 
 @Entity
 @Table(name = "users")
-public class DummyEntity1 implements Serializable {
+public class User implements Serializable {
 
   private static final long serialVersionUID = 1L;
   @Id
@@ -34,7 +34,7 @@ public class DummyEntity1 implements Serializable {
     @JoinColumn(name = "user_name", referencedColumnName = "user_name")}, inverseJoinColumns = {
     @JoinColumn(name = "role_name", referencedColumnName = "role_name")})
   @ManyToMany
-  private List<DummyEnitiy2> roleList = new ArrayList<>();
+  private List<Roles> roleList = new ArrayList<>();
 
   public List<String> getRolesAsStrings() {
     if (roleList.isEmpty()) {
@@ -47,14 +47,14 @@ public class DummyEntity1 implements Serializable {
     return rolesAsStrings;
   }
 
-  public DummyEntity1() {}
+  public User() {}
 
   //TODO Change when password is hashed
    public boolean verifyPassword(String pw){
         return(BCrypt.checkpw(pw,userPass));
     }
 
-  public DummyEntity1(String userName, String userPass) {
+  public User(String userName, String userPass) {
     this.userName = userName;
     this.userPass = BCrypt.hashpw(userPass, BCrypt.gensalt(10));
   }
@@ -76,15 +76,15 @@ public class DummyEntity1 implements Serializable {
     this.userPass = userPass;
   }
 
-  public List<DummyEnitiy2> getRoleList() {
+  public List<Roles> getRoleList() {
     return roleList;
   }
 
-  public void setRoleList(List<DummyEnitiy2> roleList) {
+  public void setRoleList(List<Roles> roleList) {
     this.roleList = roleList;
   }
 
-  public void addRole(DummyEnitiy2 userRole) {
+  public void addRole(Roles userRole) {
     roleList.add(userRole);
   }
 

@@ -19,7 +19,7 @@ import javax.validation.constraints.Size;
  */
 @Entity
 @Table(name = "roles")
-public class DummyEnitiy2 implements Serializable {
+public class Roles implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -29,12 +29,12 @@ public class DummyEnitiy2 implements Serializable {
     private String roleName;
     
     @ManyToMany(mappedBy = "roleList")
-    private List<DummyEntity1> userList;
+    private List<User> userList;
 
-    public DummyEnitiy2() {
+    public Roles() {
     }
 
-    public DummyEnitiy2(String roleName) {
+    public Roles(String roleName) {
         this.roleName = roleName;
     }
 
@@ -46,11 +46,11 @@ public class DummyEnitiy2 implements Serializable {
         this.roleName = roleName;
     }
 
-    public List<DummyEntity1> getUserList() {
+    public List<User> getUserList() {
         return userList;
     }
 
-    public void setUserList(List<DummyEntity1> userList) {
+    public void setUserList(List<User> userList) {
         this.userList = userList;
     }   
 }

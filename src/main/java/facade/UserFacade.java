@@ -1,6 +1,6 @@
 package facade;
 
-import entities.DummyEntity1;
+import entities.User;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import secuirty.errorhandling.AuthenticationException;
@@ -30,11 +30,11 @@ public class UserFacade {
         return instance;
     }
 
-    public DummyEntity1 getVeryfiedUser(String username, String password) throws AuthenticationException {
+    public User getVeryfiedUser(String username, String password) throws AuthenticationException {
         EntityManager em = emf.createEntityManager();
-        DummyEntity1 user;
+        User user;
         try {
-            user = em.find(DummyEntity1.class, username);
+            user = em.find(User.class, username);
             if (user == null || !user.verifyPassword(password)) {
                 throw new AuthenticationException("Invalid user name or password");
             }

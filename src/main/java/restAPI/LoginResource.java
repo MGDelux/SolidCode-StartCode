@@ -1,7 +1,7 @@
 package restAPI;
 
 import com.google.gson.Gson;
-import entities.DummyEntity1;
+import entities.User;
 import java.util.List;
 import javax.annotation.security.RolesAllowed;
 import javax.persistence.EntityManager;
@@ -16,11 +16,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.SecurityContext;
 import utils.EntityManagerCreator;
 
-/**
- * @author lam@cphbusiness.dk
- */
 @Path("info")
-public class DemoResource {
+public class LoginResource {
     
     private static final EntityManagerFactory EMF = EntityManagerCreator.CreateEntityManager();
     @Context
@@ -43,8 +40,8 @@ public class DemoResource {
 
         EntityManager em = EMF.createEntityManager();
         try {
-            TypedQuery<DummyEntity1> query = em.createQuery ("select u from User u",entities.DummyEntity1.class);
-            List<DummyEntity1> users = query.getResultList();
+            TypedQuery<User> query = em.createQuery ("select u from User u",entities.User.class);
+            List<User> users = query.getResultList();
             return "[" + users.size() + "]";
         } finally {
             em.close();

@@ -15,7 +15,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import entities.DummyEntity1;
+import entities.User;
 import errorhandling.API_Exception;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
@@ -51,7 +51,7 @@ public class LoginEndpoint {
         }
 
         try {
-            DummyEntity1 user = USER_FACADE.getVeryfiedUser(username, password);
+            User user = USER_FACADE.getVeryfiedUser(username, password);
             String token = createToken(username, user.getRolesAsStrings());
             JsonObject responseJson = new JsonObject();
             responseJson.addProperty("username", username);
