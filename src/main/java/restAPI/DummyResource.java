@@ -7,8 +7,14 @@ package restAPI;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import dto.ChuckDTO;
+import dto.CombinedDTO;
+import dto.StarWarsShipDTO;
+import dto.JokeDTO;
+import dto.CatFactDTO;
 import entities.DummyEntity;
 import facade.testFacade;
+import java.io.IOException;
 import static java.lang.String.format;
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +29,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import static javax.ws.rs.core.Response.Status.BAD_REQUEST;
 import utils.EntityManagerCreator;
+import utils.HTTPFetch;
 
 /**
  *
@@ -72,5 +79,31 @@ public class DummyResource {
               facade.createPerson(p.getName());
         }
     }
+        
+        @Path("/5endPoints")
+        @GET
+        @Consumes(MediaType.APPLICATION_JSON)
+        @Produces({MediaType.APPLICATION_JSON})
+        public String fetch() throws IOException{
+            Gson gson = new Gson();
+//todo use multithreading 
+        String chuck = HTTPFetch.fetchData("https://api.chucknorris.io/jokes/random");
+        String joke = HTTPFetch.fetchData("https://icanhazdadjoke.com/");
+        String SWShip = HTTPFetch.fetchData("https://swapi.dev/api/starships/12/");
+        String catfact = HTTPFetch.fetchData("https://cat-fact.herokuapp.com/facts/random");
+        StarWarsShipDTO ship = gson.fromJson(SWShip, StarWarsShipDTO.class);
+        CatFactDTO cat =  gson.fromJson(catfact, CatFactDTO.class);
+            System.out.println(catfact);
+                   System.out.println(cat);
+       ChuckDTO dto = gson.fromJson(chuck, ChuckDTO.class);
+        JokeDTO jokedto = gson.fromJson(joke, JokeDTO.class);
+       CombinedDTO cw = new CombinedDTO(dto,jokedto,ship,cat);
+            System.out.println(cw);
+
+        return gson.toJson(cw);
+        }
+
+    
+
 
 }
