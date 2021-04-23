@@ -5,7 +5,7 @@
  */
 package utils;
 
-import entities.Roles;
+import entities.Role;
 import entities.User;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -33,8 +33,8 @@ public class SetupUsers {
       User admin = new User("admin", "adminpw");
           em.getTransaction().begin();
 
-      Roles userRole = new Roles("user");
-      Roles adminRole = new Roles("admin");
+      Role userRole = new Role("user");
+      Role adminRole = new Role("admin");
       user.addRole(userRole);
       admin.addRole(adminRole);
        em.persist(userRole);

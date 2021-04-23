@@ -1,11 +1,10 @@
+dto\CatFactDTO.class
 security\JWTSecurityContext.class
 errorhandling\API_ExceptionMapper.class
 security\SharedSecret.class
 secuirty\errorhandling\NotAuthorizedExceptionMapper.class
 dto\ChuckDTO.class
 secuirty\errorhandling\AuthenticationExceptionMapper.class
-dto\WeatherDTO.class
-entities\Roles.class
 restAPI\DummyResource.class
 utils\DummyData.class
 entities\User.class
@@ -19,7 +18,9 @@ facade\testFacade.class
 errorhandling\API_Exception.class
 security\LoginEndpoint.class
 cors\CorsFilter.class
+entities\Role.class
 security\JWTAuthenticationFilter.class
+dto\CombinedDTO.class
 dto\JokeDTO.class
 dto\StarWarsShipDTO.class
 restAPI\LoginResource.class
