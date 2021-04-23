@@ -80,6 +80,8 @@ public class DummyResource {
         }
     }
         
+        
+        
         @Path("/5endPoints")
         @GET
         @Consumes(MediaType.APPLICATION_JSON)
