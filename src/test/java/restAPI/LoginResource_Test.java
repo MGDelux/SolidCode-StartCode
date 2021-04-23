@@ -10,6 +10,8 @@ import io.restassured.RestAssured;
 import io.restassured.parsing.Parser;
 import java.net.URI;
 import entities.Role;
+import static io.restassured.RestAssured.given;
+import java.util.Arrays;
 import javax.persistence.EntityManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
@@ -23,8 +25,20 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.ws.rs.core.UriBuilder;
 import org.glassfish.grizzly.http.server.HttpServer;
+import org.glassfish.grizzly.http.util.HttpStatus;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
+import static org.glassfish.jersey.internal.guava.Predicates.equalTo;
 import org.glassfish.jersey.server.ResourceConfig;
+import static org.hamcrest.Matchers.arrayWithSize;
+import static org.hamcrest.Matchers.contains;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.greaterThan;
+import static org.hamcrest.Matchers.hasItemInArray;
+import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.hasToString;
+import static org.hamcrest.Matchers.hasValue;
+import static org.hamcrest.Matchers.is;
+import org.hamcrest.collection.IsArray;
 
 /**
  *
@@ -66,6 +80,8 @@ public class LoginResource_Test {
     
     @BeforeEach
     public void setUp() {
+         System.out.println("####################################");
+        System.out.println(">START TEST...");
                 EntityManager em = emf.createEntityManager();
         try {
             em.getTransaction().begin();
@@ -97,5 +113,30 @@ public class LoginResource_Test {
     @AfterEach
     public void tearDown() {
     }
-    
+@Test
+public void test(){
+
+      System.out.println(">Testing API STATUS");
+      given().when().get("/dummyAPI/getStatus").then().statusCode(200);
+      System.out.println(">>API ONLINE IT SEEMS LUL");
+
+  
+}    
+@Test
+public void test2(){
+
+      System.out.println(">Testing API STATUS 2");
+
+         given().contentType("application/json").get("/dummyAPI/getStatus").prettyPeek()
+                 .then().assertThat().statusCode(200)
+                 .and().assertThat().body("msg", is("SC SC ONLINE"));
+         System.out.println("BASIC API TEST DONE");
+            System.out.println("####################################");
+
+  
+}    
+
+
+
+
 }
