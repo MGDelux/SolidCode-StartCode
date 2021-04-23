@@ -61,6 +61,20 @@ Master Branch:
     <td>200</td>
     <td>Open</td>
   </tr>
+ <tr>
+    <td>Delete</td>
+    <td>/dummyAPI/delete</td>
+    <td>TO BE IMPLEMENTED</td>
+    <td></td>
+    <td>Open</td>
+  </tr>
+  <tr>
+    <td>Update</td>
+    <td>/dummyAPI/update</td>
+    <td>TO BE IMPLEMENTED</td>
+    <td></td>
+    <td>Open</td>
+  </tr>
   <tr>
     <td>GET</td>
     <td>/dummyAPI/all</td>
