@@ -46,7 +46,7 @@ Master Branch:
  <h4 align="center">Back-end avaible rest points:</h4>
  <p>API located at: xxx/api/xxx</p>
  <p>fx.: //api/dummyAPI/getStatus</p>
- <table>
+ <table align="center">
   <tr>
     <th>Type</th>
     <th>Path</th>
