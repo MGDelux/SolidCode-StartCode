@@ -12,6 +12,7 @@ facade\UserFacade.class
 utils\EntityManagerCreator.class
 utils\HTTPFetch.class
 security\UserPrincipal.class
+dto\DummyDto.class
 utils\test.class
 errorhandling\GenericExceptionMapper.class
 facade\testFacade.class
@@ -28,7 +29,6 @@ security\RolesAllowedFilter.class
 entities\DummyEntity.class
 errorhandling\NotFoundException.class
 secuirty\errorhandling\AuthenticationException.class
-restAPI\JokeDTO.class
 errorhandling\ExceptionDTO.class
 utils\SetupUsers.class
 restAPI\ApplicationConfig.class

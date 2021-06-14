@@ -5,6 +5,7 @@
  */
 package facade;
 
+import dto.DummyDto;
 import entities.DummyEntity;
 import java.util.List;
 import javax.persistence.EntityManager;
@@ -45,7 +46,7 @@ public class testFacade {
         }
         
         
-        public List<DummyEntity> getAllPersons(){
+        public List<DummyDto> getAllPersons(){
         
         EntityManager em = emf.createEntityManager();
           List<DummyEntity> rms;
@@ -56,7 +57,36 @@ public class testFacade {
         }catch(Exception e){    
      throw new WebApplicationException("Internal Server Problem. We are sorry for the inconvenience " + e.toString(),500);
     }
-        return rms;
+        return DummyDto.getDtos(rms);
+    }
+
+    public DummyDto edit(int id, String dtoName) {
+    EntityManager em = emf.createEntityManager();
+    DummyEntity personToEdit;
+    try{
+        personToEdit = (em.find(DummyEntity.class, id));
+        personToEdit.setName(dtoName);
+        em.getTransaction().begin();
+        em.merge(personToEdit);
+        em.getTransaction().commit();
+    }catch(Exception e){
+        throw new WebApplicationException(e.toString());
+    }
+    return new DummyDto(personToEdit);
+    }
+
+    public DummyDto delete(int id) {
+        EntityManager em = emf.createEntityManager();
+    DummyEntity personToDelete;
+    try{
+        personToDelete = (em.find(DummyEntity.class, id));
+        em.getTransaction().begin();
+        em.remove(personToDelete);
+        em.getTransaction().commit();
+    }catch(Exception e){
+        throw new WebApplicationException(e.toString());
+    }
+    return new DummyDto(personToDelete);
     }
     
         

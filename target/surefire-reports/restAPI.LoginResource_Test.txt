@@ -1,13 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: restAPI.LoginResource_Test
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 4.104 s <<< FAILURE! - in restAPI.LoginResource_Test
-test3  Time elapsed: 0.249 s  <<< FAILURE!
-java.lang.AssertionError: 
-1 expectation failed.
-Response body doesn't match expectation.
-Expected: an array containing "3"
-  Actual: [3]
-
-	at restAPI.LoginResource_Test.test3(LoginResource_Test.java:144)
-
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.956 s - in restAPI.LoginResource_Test

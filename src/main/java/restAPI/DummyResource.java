@@ -12,6 +12,7 @@ import dto.CombinedDTO;
 import dto.StarWarsShipDTO;
 import dto.JokeDTO;
 import dto.CatFactDTO;
+import dto.DummyDto;
 import entities.DummyEntity;
 import facade.testFacade;
 import java.io.IOException;
@@ -20,9 +21,12 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManagerFactory;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
+import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
@@ -53,7 +57,7 @@ public class DummyResource {
     @GET
     @Produces({MediaType.APPLICATION_JSON})
       public String getFromDB(){
-         List<DummyEntity> list = new ArrayList();
+         List<DummyDto> list = new ArrayList();
         list.addAll(facade.getAllPersons());
         return GSON.toJson(list);
       }
@@ -80,6 +84,27 @@ public class DummyResource {
         }
     }
         
+        
+       @Path("/edit/{id}")
+    @PUT
+    @Produces({MediaType.APPLICATION_JSON})
+    @Consumes(MediaType.APPLICATION_JSON)
+    public DummyDto edit(@PathParam("id") int id, String person) throws Exception{
+    DummyDto DTO = GSON.fromJson(person, DummyDto.class);
+    facade.edit(id, DTO.getDtoName());
+     return DTO;
+
+    }
+        
+     @Path("/delete/{id}")
+    @DELETE
+    @Produces({MediaType.APPLICATION_JSON})
+    @Consumes(MediaType.APPLICATION_JSON)
+    public DummyDto edit(@PathParam("id") int id) throws Exception{
+    DummyDto p = facade.delete(id);
+     return p;
+
+    }    
         
         
         @Path("/5endPoints")
