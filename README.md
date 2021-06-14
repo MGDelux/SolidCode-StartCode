@@ -63,14 +63,14 @@ Master Branch:
   </tr>
  <tr>
     <td>Delete</td>
-    <td>/dummyAPI/delete</td>
+    <td>/dummyAPI/delete/{id}</td>
     <td>int id</td>
     <td>200</td>
     <td>Open</td>
   </tr>
   <tr>
     <td>Update</td>
-    <td>/dummyAPI/update</td>
+    <td>/dummyAPI/update/{id}</td>
     <td>int id, String person</td>
     <td>200</td>
     <td>Open</td>
