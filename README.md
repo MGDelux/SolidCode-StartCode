@@ -62,17 +62,17 @@ Master Branch:
     <td>Open</td>
   </tr>
  <tr>
-    <td>Delete</td>
-    <td>/dummyAPI/delete</td>
-    <td>TO BE IMPLEMENTED</td>
-    <td></td>
+    <td>DELETE</td>
+    <td>/dummyAPI/delete/{id}</td>
+    <td>int id</td>
+    <td>200</td>
     <td>Open</td>
   </tr>
   <tr>
-    <td>Update</td>
-    <td>/dummyAPI/update</td>
-    <td>TO BE IMPLEMENTED</td>
-    <td></td>
+    <td>PUT</td>
+    <td>/dummyAPI/update/{id}</td>
+    <td>int id, String person</td>
+    <td>200</td>
     <td>Open</td>
   </tr>
   <tr>
