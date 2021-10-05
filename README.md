@@ -1,7 +1,4 @@
 
-Master Branch:
-<br>
-[![Build Status](https://travis-ci.com/MGDelux/SolidCode-StartCode-BackEnd.svg?branch=master)](https://travis-ci.com/MGDelux/SolidCode-StartCode-BackEnd)
 <h1 align="center">Project CA - 3 - EXAM EDITION</h1>
 <h3 align="center">By Team "SolidCode"</h3>
 
